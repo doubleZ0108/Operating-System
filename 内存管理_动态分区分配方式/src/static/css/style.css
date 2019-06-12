@@ -1,0 +1,94 @@
+/*中部链式内存样式*/
+.memory {
+    margin-top: 5%;
+    height: 100px;
+    width: 200px;
+    border-top: 4px solid black;
+    border-bottom: 4px solid black;
+    display: flex;
+    position: relative;
+}
+
+/*内存中的每一个作业*/
+.memory-proj {
+    margin-top: 1px;
+    background-color: rgb(111, 120, 172);
+    height: 98px;
+    width: 100px;
+    position: absolute;
+}
+
+
+/*下拉框*/
+.model-box {
+    position: relative;
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #fff;
+    border: 1px solid #e4e4e4;
+    border-radius: 3px;
+    text-indent: 5px;
+}
+
+/*下拉框中待选文字*/
+.model-box .model-select-text {
+    position: relative;
+    width: 100%;
+    height: 28px;
+    color: #666;
+    text-indent: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.model-box .model-select-text:after {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    content: '';
+    width: 0;
+    height: 0;
+    border-width: 10px 8px 0;
+    border-style: solid;
+    border-color: #666 transparent transparent;
+}
+
+.model-box .model-select-option {
+    position: absolute;
+    top: 30px;
+    left: -1px;
+    display: none;
+    list-style: none;
+    border: 1px solid #e4e4e4;
+    border-top: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    z-index: 99;
+    background-color: #fff;
+}
+
+.model-box .model-select-option li {
+    height: 28px;
+    line-height: 28px;
+    color: #333;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.model-box .model-select-option li:hover {
+    background-color: #f3f3f3;
+}
+
+.model-box .model-select-option li.seleced {
+    background-color: #f3f3f3;
+}
+
+
+.disable {
+	pointer-events: none;
+}
