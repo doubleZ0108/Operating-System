@@ -44,159 +44,176 @@ namespace FileManageSystem
         {
             root = new Node(rootName);
             if (root == null)
-             { return; }
+            { return; }
         }
 
-        //清空某一个目录,清空全目录时要使用root
+        /*清空某目录(当参数为root是为格式化)*/
         public void freeCategory(Node pNode)
         {
             if (pNode == null)
-                return;
-            if (pNode.firstChild != null)
+                { return; }
+
+            if (pNode.firstChild != null)   //清空左孩子
             {
                 freeCategory(pNode.firstChild);
                 pNode.firstChild = null;
             }
-            if (pNode.nextBrother != null)
+            if (pNode.nextBrother != null)  //清空右兄弟
             {
                 freeCategory(pNode.nextBrother);
                 pNode.nextBrother = null;
             }
-            pNode = null;
+
+            pNode = null;                   //将自己清除
         }
-        //删掉结点
+
+        /*删掉结点*/
         public void delete(Node pNode)
         {
             pNode = null;
         }
-        //寻找文件
-        public Node search(Node pNode,string fileName,int type)
+
+        /*搜索文件*/
+        public Node search(Node pNode, string fileName, int type)
         {
-            //fileName为要寻找的文件的名称
             if (pNode == null)
-                return null;
+                { return null; }
             if (pNode.fcb.fileName == fileName && pNode.fcb.type == type)
-                return pNode;
+                { return pNode; }
             if (pNode.firstChild == null && pNode.nextBrother == null)
-            {
-                return null;
-            }
+                { return null; }
             else
             {
-                Node temp = search(pNode.firstChild, fileName, type);
-                if (temp != null)
-                    return temp;
+                Node firstChild = search(pNode.firstChild, fileName, type); //递归的搜索左孩子的子树
+                if (firstChild != null)
+                    { return firstChild; }
                 else
-                    return search(pNode.nextBrother, fileName, type);
+                    { return search(pNode.nextBrother, fileName, type); }   //递归的搜索右兄弟的子树
             }
         }
-        //根据根目录创建文件
+
+        /*在文件夹中创建文件*/
         public void createFile(string parentFileName, FCB file)
         {
             if (root == null)
-                return;
-            Node parentNode = search(root, parentFileName, 1);    //找到父文件
-            
+                { return; }
+            Node parentNode = search(root, parentFileName, FCB.FOLDER);    //找到父文件夹
+
             if (parentNode == null)
-                return;
-            if(parentNode.firstChild==null)
+                { return; }
+            if (parentNode.firstChild == null)  //该文件夹为空
             {
-                parentNode.firstChild = new Node(file);
+                parentNode.firstChild = new Node(file);     //新创建的文件为第一个文件, 放到左孩子的位置
                 parentNode.firstChild.parent = parentNode;
                 return;
             }
             else
             {
                 Node temp = parentNode.firstChild;
-                while (temp.nextBrother != null)
+                while (temp.nextBrother != null)        //顺序找到该文件夹下最后一个文件存储的位置
                     temp = temp.nextBrother;
+
                 temp.nextBrother = new Node(file);
                 temp.nextBrother.parent = parentNode;
+
             }
         }
-        //删除文件夹
+
+        /*删除文件夹*/
         public void deleteFolder(string name)
         {
-
-            Node currentNode = search(root, name, 1);   //找到要删除的结点
+            Node currentNode = search(root, name, FCB.FOLDER);   //找到要删除的结点
             Node parentNode = currentNode.parent;
-            if (parentNode.firstChild == currentNode)
-                parentNode.firstChild = currentNode.nextBrother;
+
+            if (parentNode.firstChild == currentNode)   //如果要删除的文件夹是父文件夹中的第一项
+                { parentNode.firstChild = currentNode.nextBrother; }    //更新父文件夹的左孩子
             else
             {
-                parentNode = parentNode.firstChild;
-                while (parentNode.nextBrother != currentNode)
-                    parentNode = parentNode.nextBrother;
-                parentNode.nextBrother = currentNode.nextBrother;
+                Node temp = parentNode.firstChild;
+                while (temp.nextBrother != currentNode)
+                {
+                    temp = temp.nextBrother;
+                }
+
+                temp.nextBrother = currentNode.nextBrother;     //找到该文件的哥哥, 让其指向自己的弟弟
             }
 
             freeCategory(currentNode);        //删除当前结点下的所有文件
         }
-        //删除文件
+
+        /*删除文件*/
         public void deleteFile(string name)
         {
-            Node currentNode = search(root, name, 0);   //找到要删除的文件
+            Node currentNode = search(root, name, FCB.TXTFILE);   //找到要删除的文件
             Node parentNode = currentNode.parent;
-            if (parentNode.firstChild == currentNode)  //如果是左子结点
-                parentNode.firstChild = currentNode.nextBrother;
+
+            if (parentNode.firstChild == currentNode)   //如果要删除的文件是父文件夹中的第一项
+            { parentNode.firstChild = currentNode.nextBrother; }    //更新父文件夹的左孩子    
             else
             {
                 Node temp = parentNode.firstChild;
-                while(temp.nextBrother!=currentNode)
+                while (temp.nextBrother != currentNode)
                 {
                     temp = temp.nextBrother;
                 }
+
                 temp.nextBrother = currentNode.nextBrother;
             }
-            currentNode = null; 
+            currentNode = null;
         }
-        //查找同级目录下是否重名
-        public bool noSameName(string name,Node pNode,int type)
+
+        /*判断同级目录下是否重名*/
+        public bool noSameName(string name, Node pNode, int type)
         {
             //pNode为该级目录的根节点
             pNode = pNode.firstChild;
-            if (pNode == null)  //不重名
-                return true; 
-            if (pNode.fcb.fileName == name && pNode.fcb.type == type)
-                return false;
+            if (pNode == null)  //该目录中无任何文件夹和文件
+                { return true; }
+            if (pNode.fcb.fileName == name && pNode.fcb.type == type)   //第一个文件夹/文件重名
+                { return false; }
             else
             {
-                pNode = pNode.nextBrother;
-                while(pNode!=null)
+                Node temp = pNode.nextBrother;
+                while (temp != null)
                 {
-                    if (pNode.fcb.fileName == name && pNode.fcb.type == type)
-                        return false;
-                    pNode = pNode.nextBrother;
+                    if (temp.fcb.fileName == name && temp.fcb.type == type)
+                        { return false; }
+                    temp = pNode.nextBrother;
                 }
                 return true; //不重名
             }
         }
-        //寻找根目录的名称
+
+        /*寻找该目录下根目录的名称*/
         public Node currentRootName(Node pNode, string name, int type)
         {
             if (pNode == null)
-                return null;
+                { return null; }
             if (pNode.firstChild == null)
-                return null;
+                { return null; }
             else
             {
                 if (pNode.firstChild.fcb.fileName == name && pNode.firstChild.fcb.type == type)
-                    return pNode;
+                    { return pNode; }
                 else
                 {
                     Node par = pNode;
-                    pNode = pNode.firstChild.nextBrother;
-                    while (pNode != null)
+                    Node temp = pNode.firstChild.nextBrother;
+                    while (temp != null)
                     {
-                        if (pNode.fcb.fileName == name && pNode.fcb.type == type)
-                            return par;
+                        if (temp.fcb.fileName == name && temp.fcb.type == type)
+                            { return par; }
                         else
-                            pNode = pNode.nextBrother;
+                            { temp = temp.nextBrother; }
                     }
-                    if (currentRootName(par.firstChild, name, type) != null)
+                    if (currentRootName(par.firstChild, name, type) != null)    //递归地在左孩子子树中寻找
+                    {
                         return currentRootName(par.firstChild, name, type);
+                    }
                     else
-                        return currentRootName(par.firstChild.nextBrother, name, type);
+                    {
+                        return currentRootName(par.firstChild.nextBrother, name, type); //递归地在右兄弟子树中寻找
+                    }
                 }
             }
         }

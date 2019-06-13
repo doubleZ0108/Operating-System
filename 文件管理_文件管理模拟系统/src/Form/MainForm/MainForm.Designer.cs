@@ -39,7 +39,6 @@
             this.fileName = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.buttonSearch = new System.Windows.Forms.Button();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
@@ -57,6 +56,7 @@
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.treeView = new System.Windows.Forms.TreeView();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -163,28 +163,15 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "groupBox3";
             // 
-            // buttonSearch
-            // 
-            this.buttonSearch.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.buttonSearch.Location = new System.Drawing.Point(807, 14);
-            this.buttonSearch.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(75, 33);
-            this.buttonSearch.TabIndex = 13;
-            this.buttonSearch.Text = "搜索";
-            this.buttonSearch.UseVisualStyleBackColor = false;
-            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
-            // 
             // textBoxSearch
             // 
-            this.textBoxSearch.Location = new System.Drawing.Point(288, 15);
+            this.textBoxSearch.CausesValidation = false;
+            this.textBoxSearch.Location = new System.Drawing.Point(317, 14);
             this.textBoxSearch.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(508, 28);
             this.textBoxSearch.TabIndex = 12;
-            this.textBoxSearch.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBoxSearch_MouseClick);
-            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
-            this.textBoxSearch.Leave += new System.EventHandler(this.textBoxSearch_Leave);
+            this.textBoxSearch.TabStop = false;
             // 
             // groupBox6
             // 
@@ -238,10 +225,10 @@
             // 
             this.buttonBack.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.buttonBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonBack.Location = new System.Drawing.Point(891, 14);
+            this.buttonBack.Location = new System.Drawing.Point(833, 12);
             this.buttonBack.Margin = new System.Windows.Forms.Padding(4);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(125, 32);
+            this.buttonBack.Size = new System.Drawing.Size(160, 32);
             this.buttonBack.TabIndex = 24;
             this.buttonBack.Text = "返回上级目录";
             this.buttonBack.UseVisualStyleBackColor = false;
@@ -358,11 +345,24 @@
             this.imageList.Images.SetKeyName(0, "file18.png");
             this.imageList.Images.SetKeyName(1, "folder18.png");
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(229, 19);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 18);
+            this.label1.TabIndex = 37;
+            this.label1.Text = "当前路径";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1270, 582);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.treeView);
             this.Controls.Add(this.groupBox9);
             this.Controls.Add(this.labelDiskSize);
@@ -382,7 +382,6 @@
             this.Controls.Add(this.modifyTime);
             this.Controls.Add(this.fileName);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.textBoxSearch);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -409,7 +408,6 @@
         private System.Windows.Forms.Label fileName;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.GroupBox groupBox7;
@@ -427,6 +425,7 @@
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.TreeView treeView;
         private System.Windows.Forms.ImageList imageList;
+        private System.Windows.Forms.Label label1;
     }
 }
 

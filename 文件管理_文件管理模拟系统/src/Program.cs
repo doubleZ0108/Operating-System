@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace File_Management_System
+namespace FileManageSystem
 {
     static class Program
     {
