@@ -98,6 +98,10 @@
 
   ![image.png](https://upload-images.jianshu.io/upload_images/12014150-a378aa1980c9e33f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
+- 在文件夹/文件上点击鼠标右键可选择打开/删除
+
+  ![image.png](https://upload-images.jianshu.io/upload_images/12014150-0540b357cb2a57d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 - **单击文件夹**可进入下一级文件夹, 上方可查看**当前文件路径**
 
   ![image.png](https://upload-images.jianshu.io/upload_images/12014150-38c1e4affdd75451.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)

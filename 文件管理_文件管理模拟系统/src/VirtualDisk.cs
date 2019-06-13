@@ -39,7 +39,7 @@ namespace FileManageSystem
         /*给文件分配空间并添加内容*/
         public bool giveSpace(FCB fcb, string content)
         {
-            int blocks = fcb.size / blockSize + (fcb.size%blockSize != 0 ? 1 : 0); //文件所占块数
+            int blocks = getBlockSize(fcb.size);
 
             if (blocks <= remain)
             {
