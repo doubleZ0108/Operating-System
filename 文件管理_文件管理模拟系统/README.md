@@ -7,8 +7,8 @@
 ## 目录
 
 - [开发环境](#开发环境)
-- [项目结构](#项目结构)
 - [操作说明](#操作说明)
+- [项目结构](#项目结构)
 - [作者](#作者)
 
 <a name="开发环境"></a>  
@@ -22,57 +22,7 @@
   **Visual Studio 2017** *15.9.28307.665*
   
 - **开发语言:** C#
-
-<a name="项目结构"></a>  
-
-## 项目结构
-
-│  BitMapInfo.txt   
-│  CategoryInfo.txt   
-│  FileManageSystem.exe   
-│  FileManageSystem.exe.config   
-│  FileManageSystem.pdb   
-│  MyControl.dll   
-│  MyControl.pdb   
-│  MyDiskInfo.txt   
-│  README.md   
-│  文件管理系统_设计方案报告.md   
-│  文件管理系统_设计方案报告.pdf   
-│  
-├─Resources   
-│  │  file18.png   
-│  │  file25.png   
-│  │  fileopen48.ico   
-│  │  folder18.png  
-│  │  folder25.png   
-│  │  
-│  └─icon   
-│          help.ico   
-│          icon.ico   
-│          note.ico   
-│          
-└─src
-    │  Category.cs   
-    │  FCB.cs   
-    │  Program.cs   
-    │  VirtualDisk.cs   
-    │  
-    └─Form   
-        ├─HelpForm   
-        │      HelpForm.cs   
-        │      HelpForm.Designer.cs   
-        │      HelpForm.resx   
-        │      
-        ├─MainForm   
-        │      MainForm.cs   
-        │      MainForm.Designer.cs   
-        │      MainForm.resx   
-        │      
-        └─NoteForm   
-                NoteForm.cs   
-                NoteForm.Designer.cs   
-                NoteForm.resx   
-               
+    
 
 <a name="操作说明"></a>  
 
@@ -132,7 +82,56 @@
 
   ![image.png](https://upload-images.jianshu.io/upload_images/12014150-e2418b7652502b4e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
+<a name="项目结构"></a>  
 
+## 项目结构
+```
+│  BitMapInfo.txt   
+│  CategoryInfo.txt   
+│  FileManageSystem.exe   
+│  FileManageSystem.exe.config   
+│  FileManageSystem.pdb   
+│  MyControl.dll   
+│  MyControl.pdb   
+│  MyDiskInfo.txt   
+│  README.md   
+│  文件管理系统_设计方案报告.md   
+│  文件管理系统_设计方案报告.pdf   
+│  
+├─Resources   
+│  │  file18.png   
+│  │  file25.png   
+│  │  fileopen48.ico   
+│  │  folder18.png  
+│  │  folder25.png   
+│  │  
+│  └─icon   
+│          help.ico   
+│          icon.ico   
+│          note.ico   
+│          
+└─src
+    │  Category.cs   
+    │  FCB.cs   
+    │  Program.cs   
+    │  VirtualDisk.cs   
+    │  
+    └─Form   
+        ├─HelpForm   
+        │      HelpForm.cs   
+        │      HelpForm.Designer.cs   
+        │      HelpForm.resx   
+        │      
+        ├─MainForm   
+        │      MainForm.cs   
+        │      MainForm.Designer.cs   
+        │      MainForm.resx   
+        │      
+        └─NoteForm   
+                NoteForm.cs   
+                NoteForm.Designer.cs   
+                NoteForm.resx   
+```  
 
 <a name="作者"></a>  
 
