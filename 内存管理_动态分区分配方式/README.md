@@ -5,8 +5,8 @@
 ## 目录
 
 - [开发环境](#开发环境)
-- [项目结构](#项目结构)
 - [操作说明](#操作说明)
+- [项目结构](#项目结构)
 - [作者](#作者)
 
 <a name="开发环境"></a>  
@@ -27,34 +27,6 @@
   ```html
   <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
   ```
-
-  
-
-<a name="项目结构"></a>  
-
-## 项目结构
-
-│  README.md   
-│  动态分区分配方式模拟_设计方案报告.md   
-│  动态分区分配方式模拟_设计方案报告.pdf   
-│  
-├─Resource   
-│      memory.png   
-│      
-└─src   
-    │  Dynamic partition allocation.html   
-    │  
-    └─static  
-        ├─css   
-        │      range.css   
-        │      style.css   
-        │      
-        └─js   
-                clear.js   
-                nextAssingment.js   
-                randColor.js   
-                RangeSlider.js   
-                select.js   
 
 <a name="操作说明"></a>  
 
@@ -85,6 +57,34 @@
   ![image.png](https://upload-images.jianshu.io/upload_images/12014150-0914b96b65d60558.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 - 点击**清空内存**会清空内存中的作业以及日志信息全部内容, 此时可再次调整内存空间大小, 并再次进行动态分区分配方式模拟
+  
+
+<a name="项目结构"></a>  
+
+## 项目结构
+```
+│  README.md   
+│  动态分区分配方式模拟_设计方案报告.md   
+│  动态分区分配方式模拟_设计方案报告.pdf   
+│  
+├─Resource   
+│      memory.png   
+│      
+└─src   
+    │  Dynamic partition allocation.html   
+    │  
+    └─static  
+        ├─css   
+        │      range.css   
+        │      style.css   
+        │      
+        └─js   
+                clear.js   
+                nextAssingment.js   
+                randColor.js   
+                RangeSlider.js   
+                select.js   
+```
 
 <a name="作者"></a>  
 
