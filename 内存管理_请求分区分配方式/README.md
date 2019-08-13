@@ -5,8 +5,8 @@
 ## 目录
 
 - [开发环境](#开发环境)
-- [项目结构](#项目结构)
 - [操作说明](#操作说明)
+- [项目结构](#项目结构)
 - [作者](#作者)
 
 <a name="开发环境"></a>  
@@ -20,19 +20,7 @@
   **Visual Studio 2017** *15.9.28307.665*
   
 - **开发语言:** C++
-
-<a name="项目结构"></a>  
-
-## 项目结构
-
-│  list.txt   
-│  README.md   
-│  请求分区分配方式模拟_设计方案报告.md   
-│  请求分区分配方式模拟_设计方案报告.pdf   
-│  
-└─src   
-        DemandPaging.cpp   
-        
+  
 
 <a name="操作说明"></a>  
 
@@ -82,6 +70,20 @@
 - 结束程序
 
   ![image.png](https://upload-images.jianshu.io/upload_images/12014150-18d343035dfe0878.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+  
+
+<a name="项目结构"></a>  
+
+## 项目结构
+```
+│  list.txt   
+│  README.md   
+│  请求分区分配方式模拟_设计方案报告.md   
+│  请求分区分配方式模拟_设计方案报告.pdf   
+│  
+└─src   
+        DemandPaging.cpp   
+```  
 
 <a name="作者"></a>  
 
